@@ -37,14 +37,25 @@ body {
     color: #333;
 }
 
-input[type="text"]{
+input[type="text"],input[type="button"]{
     transition: all 0.5s ease-in-out;
     background-color: #f2f2f2;
     color: #333;
     border: 1px solid #333;
 }
 
+a {
+    transition: all 0.5s ease-in-out;
+}
+
+select {
+    transition: all 0.5s ease-in-out;
+    color: #222;
+    background-color: #fff;
+}
+
 button {
+    transition: all 0.5s ease-in-out;
     background-color: #fff;
     color: #222;
 }
@@ -60,6 +71,7 @@ li {
   }
 
 .Darkmode #resultados {
+    transition: all 0.5s ease-in-out;
     color: #fff;
 }
 
@@ -70,6 +82,24 @@ li {
 }
 
 .Darkmode button {
+    transition: all 0.5s ease-in-out;
+    background-color: #232323;
+    color: #fff;
+}
+
+.Darkmode a {
+    transition: all 0.5s ease-in-out;
+    color: rgb(118, 173, 255);
+}
+
+.Darkmode input[type="button"] {
+    transition: all 0.5s ease-in-out;
+    background-color: #232323;
+    color: #fff;
+}
+
+.Darkmode select {
+    transition: all 0.5s ease-in-out;
     background-color: #232323;
     color: #fff;
 }

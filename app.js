@@ -29,6 +29,7 @@ const buscar = busquedaDebounce(()=> {
       const sinonimos = data.meanings.flatMap(meaning => meaning.synonyms);
       const fonetica = data.phonetics.filter(texto => texto.text);
       const links = data.sourceUrls.filter(links => links.length > 0);
+      const audioUrl = data.phonetics.filter(pronunciation => pronunciation.audio);
 
       //se agregan las foneticas a una variable string
       let textoFonetica = '';
@@ -44,6 +45,9 @@ const buscar = busquedaDebounce(()=> {
         }
       }
 
+      //se agrega el boton de reproducir el audio
+
+
       //agregar informacion al html
       resultado.innerHTML = `
       <h2> ${data.word}</h2>
@@ -57,12 +61,30 @@ const buscar = busquedaDebounce(()=> {
       <h3>Fonética:</h3>
       <p>${textoFonetica}</p>
       </ul>
+      <button id="reproducirAudio">Reproducir Audio</button>
+      <div id="msg"> </div>
       <h3>Enlaces fuente:</h3>
       ${links.length 
         ? `<ul>${links.map(link => `<li><a href='${link}' target='_blank'>${link}</a></li>`).join('')}</ul>`
         : '<p>No hay enlaces disponibles.</p>'
       }
       `
+      const reproducirAudio = document.getElementById('reproducirAudio');
+      const msg = document.getElementById('msg');
+
+      reproducirAudio.addEventListener('click', () => {
+
+        if (audioUrl.length == 0){
+
+          msg.textContent = 'No se encontraron audios en la API';
+          msg.style.cssText = 'color: #8b0303; margin-top: 5px'
+        }else {
+          const audio = new Audio(audioUrl[0].audio);
+          audio.play();
+        }
+
+      });
+
     })
     .catch(error => {resultado.innerHTML = `No se encontraron resultados para ${Palabra}`});
     
@@ -86,6 +108,6 @@ fuentes.addEventListener('change', ()=> {
 darkMode.addEventListener('click',()=> {
   body.classList.toggle('Darkmode');
   if (body.classList.contains('Darkmode')){
-    darkMode.textContent = 'Modo claro'
-  } else darkMode.textContent = 'Modo Oscuro'
+    darkMode.value = 'Modo claro'
+  } else darkMode.value = 'Modo oscuro'
 });
