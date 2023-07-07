@@ -111,6 +111,16 @@ fuentes.addEventListener('change', ()=> {
   }
 });
 
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    body.classList.toggle('Darkmode');
+    body.classList.contains('Darkmode')
+    darkMode.value = 'Modo claro'
+} else {
+  darkMode.value = 'Modo oscuro'
+    
+}
+
 darkMode.addEventListener('click',()=> {
   body.classList.toggle('Darkmode');
   if (body.classList.contains('Darkmode')){
