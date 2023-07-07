@@ -35,6 +35,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #fff;
     color: #333;
+    display: flexbox;
 }
 
 h1 {
@@ -42,11 +43,12 @@ h1 {
     border-bottom: solid 1px #333;
 }
 
-input[type="text"],input[type="button"]{
+input[type="text"],input[type="button"], #Fuentes{
     transition: all 0.5s ease-in-out;
     background-color: #f2f2f2;
     color: #333;
     border: 1px solid #333;
+    padding: 10px;
 }
 
 a {
@@ -61,8 +63,10 @@ select {
 
 button {
     transition: all 0.5s ease-in-out;
-    background-color: #fff;
-    color: #222;
+    background-color: #f2f2f2;
+    color: #333;
+    border: 1px solid #333;
+    padding: 10px;
 }
 
 li {
@@ -73,7 +77,9 @@ li {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
 .Darkmode #resultados {
     transition: all 0.5s ease-in-out;
@@ -86,10 +92,15 @@ li {
     color: #fff
 }
 
+.Darkmode .contenedor {
+    box-shadow: 0 0 10px rgba(238, 238, 238, 0.1);
+}
+
 .Darkmode button {
     transition: all 0.5s ease-in-out;
     background-color: #232323;
     color: #fff;
+    border-color: white;
 }
 
 .Darkmode a {
@@ -97,16 +108,11 @@ li {
     color: rgb(118, 173, 255);
 }
 
-.Darkmode input[type="button"] {
+.Darkmode input[type="button"], .Darkmode select, .Darkmode #Fuentes {
     transition: all 0.5s ease-in-out;
     background-color: #232323;
     color: #fff;
-}
-
-.Darkmode select {
-    transition: all 0.5s ease-in-out;
-    background-color: #232323;
-    color: #fff;
+    border-color: white;
 }
 
 .Darkmode input[type="text"] {
@@ -116,18 +122,41 @@ li {
     border: 1px solid #fff;
 }
 
-@media only screen and (min-width: 480px) {
+#msg {
+    color: red;
+    margin-left: 40px;
+}
+
+#reproducirAudio {
+    margin-left: 40px;
+}
+
+.Darkmode #msg {
+    color: rgb(255, 104, 104);
+}
+
+@media only screen and (max-width: 480px) {
     .contenedor {
-      padding: 20px 30px;
+        font-size: 80%;
+        padding: 20px 30px;
     }
     
     input[type="text"] {
-      width: 100%;
-      margin-bottom: 10px;
+        width: 97%;
+        margin-bottom: 10px;
+    }
+    input[type="text"],input[type="button"], #Fuentes{
+        padding: 5px;
     }
     
     #boton {
-      width: 100%;
-      margin-bottom: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    .contenedor {
+        font-size: 100%;
     }
 }

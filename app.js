@@ -77,7 +77,7 @@ const buscar = busquedaDebounce(()=> {
         if (audioUrl.length == 0){
 
           msg.textContent = 'No se encontraron audios en la API';
-          msg.style.cssText = 'color: #8b0303; margin-top: 5px'
+          msg.style.cssText = 'margin-top: 5px'
         }else {
           const audio = new Audio(audioUrl[0].audio);
           audio.play();
