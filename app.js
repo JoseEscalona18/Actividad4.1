@@ -86,7 +86,14 @@ const buscar = busquedaDebounce(()=> {
       });
 
     })
-    .catch(error => {resultado.innerHTML = `No se encontraron resultados para ${Palabra}`});
+    .catch(error => {
+      if (Palabra.length > 0){
+      resultado.innerHTML = `No se encontraron resultados para "${Palabra}"`
+      resultado.style.cssText = 'color: #8b0303; margin-top: 5px'
+      } else {
+        resultado.innerHTML = ``
+      }
+  });
     
 }, 500);
 
