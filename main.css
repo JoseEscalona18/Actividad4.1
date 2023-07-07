@@ -37,6 +37,11 @@ body {
     color: #333;
 }
 
+h1 {
+    padding-bottom: 40px;
+    border-bottom: solid 1px #333;
+}
+
 input[type="text"],input[type="button"]{
     transition: all 0.5s ease-in-out;
     background-color: #f2f2f2;
@@ -109,4 +114,20 @@ li {
     background-color: #444;
     color: #fff;
     border: 1px solid #fff;
+}
+
+@media only screen and (min-width: 480px) {
+    .contenedor {
+      padding: 20px 30px;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    #boton {
+      width: 100%;
+      margin-bottom: 10px;
+    }
 }
