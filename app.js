@@ -28,6 +28,7 @@ const buscar = busquedaDebounce(()=> {
       const definitions = data.meanings.map(meaning => meaning.definitions[0].definition);
       const sinonimos = data.meanings.flatMap(meaning => meaning.synonyms);
       const fonetica = data.phonetics.filter(texto => texto.text);
+      const links = data.sourceUrls.filter(links => links.length > 0);
 
       //se agregan las foneticas a una variable string
       let textoFonetica = '';
@@ -55,8 +56,13 @@ const buscar = busquedaDebounce(()=> {
       }
       <h3>Fonética:</h3>
       <p>${textoFonetica}</p>
-      </ul>`
-  
+      </ul>
+      <h3>Enlaces fuente:</h3>
+      ${links.length 
+        ? `<ul>${links.map(link => `<li><a href='${link}' target='_blank'>${link}</a></li>`).join('')}</ul>`
+        : '<p>No hay enlaces disponibles.</p>'
+      }
+      `
     })
     .catch(error => {resultado.innerHTML = `No se encontraron resultados para ${Palabra}`});
     
