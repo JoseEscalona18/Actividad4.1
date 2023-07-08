@@ -38,16 +38,25 @@ body {
     display: flexbox;
 }
 
-h1 {
+header {
+    display: flex;
     padding-bottom: 40px;
     border-bottom: solid 1px #333;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-input[type="text"],input[type="button"], #Fuentes{
+.modoOscuro{
+    margin: auto;
+    margin-right: 10px;
+}
+
+input[type="text"], input[type="button"], #Fuentes{
     transition: all 0.5s ease-in-out;
     background-color: #f2f2f2;
     color: #333;
     border: 1px solid #333;
+    border-radius: 3px;
     padding: 10px;
 }
 
@@ -108,7 +117,7 @@ li {
     color: rgb(118, 173, 255);
 }
 
-.Darkmode input[type="button"], .Darkmode select, .Darkmode #Fuentes {
+.Darkmode input[type="button"], .Darkmode select, .Darkmode #Fuentes, .Darkmode input[type="image"] {
     transition: all 0.5s ease-in-out;
     background-color: #232323;
     color: #fff;
@@ -135,10 +144,20 @@ li {
     color: rgb(255, 104, 104);
 }
 
+@media screen and (max-width: 310px) {
+    header {
+        display: inline;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .contenedor {
-        font-size: 80%;
+        font-size: 75%;
         padding: 20px 30px;
+    }
+
+    header{
+        padding-bottom: 0;
     }
     
     input[type="text"] {
